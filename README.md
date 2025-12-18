@@ -21,19 +21,11 @@ Automatically generate PR checklists based on changed files and their content. T
 npm install --save-dev pr-pair
 ```
 
-**Why dev dependency?**
-
-- ✅ Version consistency across team members
-- ✅ Project-specific configuration via `pr-pair.config.js`
-- ✅ Works seamlessly in CI/CD pipelines
-- ✅ No global package pollution
-- ✅ Version locked in `package.json`
-
 After installation, use via `npx`:
 
 ```bash
-npx pr-pair generate
 npx pr-pair init
+npx pr-pair generate
 npx pr-pair add-to-pr --number 123
 ```
 
@@ -48,8 +40,8 @@ npm install -g pr-pair
 After global installation, use directly:
 
 ```bash
-pr-pair generate
 pr-pair init
+pr-pair generate
 pr-pair add-to-pr --number 123
 ```
 
@@ -60,14 +52,15 @@ pr-pair add-to-pr --number 123
 **If installed as dev dependency (recommended):**
 
 ```bash
+# Create a sample configuration file
+npx pr-pair init
+
 # Generate a checklist based on changes between HEAD~1 and HEAD
 npx pr-pair generate
 
 # Generate a checklist and add it as a comment to a PR
 npx pr-pair add-to-pr --number 123
 
-# Create a sample configuration file
-npx pr-pair init
 ```
 
 **If installed globally:**
