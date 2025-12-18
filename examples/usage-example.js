@@ -6,7 +6,7 @@ async function generateAndAddChecklist() {
   try {
     // Generate a checklist based on changes between HEAD~5 and HEAD
     const checklist = await run({
-      configPath: './examples/pr-pair.config.js',
+      configPath: './examples/pr-checklist.config.js',
       baseRef: 'HEAD~5',
       headRef: 'HEAD',
       addToPR: false // Set to true to add to PR automatically
@@ -23,7 +23,7 @@ async function generateAndAddChecklist() {
     
     // Then run with addToPR set to true:
     // await run({
-    //   configPath: './examples/pr-pair.config.js',
+    //   configPath: './examples/pr-checklist.config.js',
     //   baseRef: 'HEAD~5',
     //   headRef: 'HEAD',
     //   addToPR: true
