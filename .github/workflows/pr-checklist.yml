@@ -1,20 +1,20 @@
-name: PR Checklist Generator
+name: Add Checklist to PR
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
-  generate-checklist:
+  checklist:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetch all history for all branches and tags
+          fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "18"
           cache: "npm"
@@ -22,13 +22,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate PR checklist
-        run: |
-          # Generate checklist and add to PR
-          npx pr-pair add-to-pr \
-            --number ${{ github.event.pull_request.number }} \
-            --base ${{ github.event.pull_request.base.sha }} \
-            --head ${{ github.event.pull_request.head.sha }}
+      - name: Add Checklist to PR
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: npx pr-pair add-to-pr --number ${{ github.event.pull_request.number }}

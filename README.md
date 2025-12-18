@@ -212,7 +212,7 @@ name: Add Checklist to PR
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened]
 
 jobs:
   checklist:
