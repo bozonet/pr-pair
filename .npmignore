@@ -1,0 +1,52 @@
+# Source files - only dist/ should be published
+src/
+
+# Test files
+__tests__/
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+coverage/
+.nyc_output/
+
+# Development dependencies
+node_modules/
+
+# Development configuration files
+.gitignore
+.git/
+tsconfig.json
+jest.config.js
+.eslintrc*
+.eslintcache
+.prettierrc*
+.prettierignore
+
+# Build artifacts
+*.tsbuildinfo
+*.log
+
+# Development scripts
+test-cli.sh
+run-tests.sh
+run-example.sh
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+
+# Package tarballs
+*.tgz
+
